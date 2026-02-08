@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swiftlee Car Rental</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-left">
+      <div class="brand">
+        <span class="brand-mark">S⚡L</span>
+        <span class="brand-name">Swiftlee</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#fleet">Our Fleet</a>
+      <a href="#howto">How-to</a>
+      <a href="#dashboard">Staff Dashboard</a>
+    </nav>
+
+    <div class="nav-right">
+      <button id="loginBtn" class="btn btn-yellow">Login</button>
+      <button id="themeBtn" class="btn btn-ghost" type="button">🌙</button>
+    </div>
+  </header>
+
+  <!-- HOME / HERO -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Experience the<br/>future of<br/>Transportation</h1>
+        <p class="muted">Elevate your travel experience with EV rentals.</p>
+
+        <div class="hero-form">
+          <div class="field">
+            <label>Pick-Up Date</label>
+            <input id="heroPickupDate" type="date" />
+          </div>
+
+          <div class="field">
+            <label>Return Date</label>
+            <input id="heroReturnDate" type="date" />
+          </div>
+
+          <button id="heroReserveBtn" class="btn btn-yellow btn-wide">Reserve</button>
+        </div>
+
+        <p id="heroMsg" class="msg"></p>
+      </div>
+
+      <div class="hero-image">
+        <div class="car-card">
+          <div class="car-card-top">
+            <div class="car-title">Featured Car</div>
+            <div class="badge">Promo</div>
+          </div>
+          <div class="car-card-body">
+            <div id="featuredImg" class="car-blob"></div>
+            <div class="car-mini">
+              <div class="mini-name" id="featuredName">Honda e 2020</div>
+              <div class="mini-price"><span id="featuredPrice">$72</span> / day</div>
+            </div>
+          </div>
+          <div class="car-card-footer">
+            <button id="featuredRentBtn" class="btn btn-yellow btn-wide">Rent car</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section section-light">
+    <div class="container">
+      <p class="section-kicker">About us?</p>
+      <h2>We are the top rental company in Singapore</h2>
+      <p class="muted center">
+        We provide a pleasant and hassle-free EV rental experience — fast booking, clear pricing, smooth pickup and return.
+      </p>
+
+      <div class="cards3">
+        <div class="info-card">
+          <div class="icon">✔</div>
+          <h3>Quality Service</h3>
+          <p class="muted">Friendly staff available to assist you.</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">💳</div>
+          <h3>No Deposit Required</h3>
+          <p class="muted">Pay final cost after inspection (simulated).</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">⏱</div>
+          <h3>Quick and Easy</h3>
+          <p class="muted">Reserve and pick up smoothly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET -->
+  <section id="fleet" class="section">
+    <div class="container">
+      <h2 class="center">Our Fleet</h2>
+      <p class="muted center">Choose your EV. Click “Rent car” to reserve.</p>
+
+      <div class="fleet-grid" id="fleetGrid"></div>
+    </div>
+  </section>
+
+  <!-- HOW TO -->
+  <section id="howto" class="section section-dark">
+    <div class="container">
+      <p class="section-kicker center">How-to</p>
+      <h2 class="center">How to rent with us?</h2>
+
+      <div class="howto-box">
+        <div class="howto-left">
+          <div class="map-box">
+            <div class="map-title">Our Office (Demo)</div>
+            <div class="map-placeholder">Map Embed (Optional)</div>
+          </div>
+        </div>
+
+        <div class="howto-right">
+          <div class="step">
+            <div class="step-title">Step 1:</div>
+            <div class="step-text">Select and reserve vehicle (online)</div>
+          </div>
+          <div class="step">
+            <div class="step-title">Step 2:</div>
+            <div class="step-text">Pick up from office branch (staff confirms)</div>
+          </div>
+          <div class="step">
+            <div class="step-title">Step 3:</div>
+            <div class="step-text">Drive and enjoy!</div>
+          </div>
+          <div class="step">
+            <div class="step-title">Step 4:</div>
+            <div class="step-text">Return at car park (customer confirms)</div>
+          </div>
+          <div class="step">
+            <div class="step-title">Step 5:</div>
+            <div class="step-text">Inspection (staff) + final bill</div>
+          </div>
+          <div class="step">
+            <div class="step-title">Step 6:</div>
+            <div class="step-text">Pay final bill (simulated)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM (hidden until you choose a car) -->
+  <section id="booking" class="section section-light">
+    <div class="container">
+      <h2 class="center">Reservation Details</h2>
+      <p class="muted center">Fill details to complete reservation.</p>
+
+      <div class="form-wrap">
+        <div class="form-block">
+          <h3>Personal Particulars</h3>
+
+          <div class="field">
+            <label>Full Name</label>
+            <input id="custName" type="text" placeholder="e.g., Adam Levine" />
+          </div>
+
+          <div class="field">
+            <label>Email</label>
+            <input id="custEmail" type="email" placeholder="e.g., Tom_Cruise@email.com" />
+          </div>
+
+          <div class="field">
+            <label>Contact No.</label>
+            <input id="custPhone" type="tel" placeholder="e.g., 9XXXXXXX" />
+          </div>
+
+          <div class="field">
+            <label>Select Car</label>
+            <select id="carSelect"></select>
+          </div>
+        </div>
+
+        <div class="form-block">
+          <h3>Rental Details</h3>
+
+          <div class="two-cols">
+            <div class="field">
+              <label>Pick-up Date</label>
+              <input id="pickupDate" type="date" />
+            </div>
+            <div class="field">
+              <label>Return Date</label>
+              <input id="returnDate" type="date" />
+            </div>
+          </div>
+
+          <div class="two-cols">
+            <div class="field">
+              <label>Pick-up Time</label>
+              <input id="pickupTime" type="time" />
+            </div>
+            <div class="field">
+              <label>Return Time</label>
+              <input id="returnTime" type="time" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Return Location (Car Park)</label>
+            <select id="returnLocation">
+              <option value="Marina Bay Sands Carpark">Marina Bay Sands Carpark</option>
+              <option value="Star Vista Carpark">Star Vista Carpark</option>
+              <option value="Orchard Liat Towers Carpark">Orchard Liat Towers Carpark</option>
+              <option value="Raffles City Carpark">Raffles City Carpark</option>
+            </select>
+          </div>
+
+          <h3 style="margin-top:18px;">Credit Card (Simulated)</h3>
+          <div class="field">
+            <label>Card Number</label>
+            <input id="cardNumber" inputmode="numeric" maxlength="19" placeholder="16 digits" />
+          </div>
+
+          <div class="two-cols">
+            <div class="field">
+              <label>Expiry (MM/YY)</label>
+              <input id="cardExpiry" maxlength="5" placeholder="MM/YY" />
+            </div>
+            <div class="field">
+              <label>CVV</label>
+              <input id="cardCvv" inputmode="numeric" maxlength="4" placeholder="3-4 digits" />
+            </div>
+          </div>
+
+          <button id="reserveBtn" class="btn btn-yellow btn-wide">Continue</button>
+          <p id="reserveMsg" class="msg"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS -->
+  <section id="success" class="section section-dark hidden">
+    <div class="container success-box">
+      <h2>Reservation successful!</h2>
+      <p class="muted">Thank you for choosing Swiftlee!</p>
+      <p class="muted">Reservation ID: <b id="successId">R----</b></p>
+
+      <p class="muted" style="margin-top:14px;">
+        Next: go to <b>Staff Dashboard</b> to demonstrate pickup → return → inspection → bill/pay.
+      </p>
+
+      <div class="success-actions">
+        <a class="btn btn-yellow" href="#dashboard">Go to Staff Dashboard</a>
+        <a class="btn btn-ghost" href="#home">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAFF DASHBOARD (THIS is what past examples usually MISS) -->
+  <section id="dashboard" class="section">
+    <div class="container">
+      <h2 class="center">Staff Dashboard (Core Requirements)</h2>
+      <p class="muted center">
+        This panel is how you clearly show all 5 required functions in your demo video.
+      </p>
+
+      <div class="dashboard-cards">
+        <div class="dash-card">
+          <h3>Bookings Table</h3>
+          <p class="muted">Use the Action buttons to progress the workflow.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th><th>Customer</th><th>Car</th><th>Dates</th><th>Status</th><th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsTable"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <h3>Inspection</h3>
+          <p class="muted">Select a Returned booking to inspect.</p>
+
+          <div class="field">
+            <label>Booking ID</label>
+            <input id="inspectId" placeholder="e.g., R1001" />
+          </div>
+
+          <div class="field">
+            <label>Condition</label>
+            <select id="inspectCondition">
+              <option value="no_damage">No Damage</option>
+              <option value="damage">Damage Found</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Damage Notes (optional)</label>
+            <input id="damageNotes" placeholder="e.g., Scratch on door" />
+          </div>
+
+          <div class="field">
+            <label>Damage Cost (SGD)</label>
+            <input id="damageCost" type="number" min="0" step="1" value="0" />
+          </div>
+
+          <button id="inspectBtn" class="btn btn-yellow btn-wide">Submit Inspection</button>
+          <p id="inspectMsg" class="msg"></p>
+        </div>
+
+        <div class="dash-card">
+          <h3>Final Bill + Pay</h3>
+          <p class="muted">Generate invoice after inspection.</p>
+
+          <div class="field">
+            <label>Booking ID</label>
+            <input id="billId" placeholder="e.g., R1001" />
+          </div>
+
+          <button id="genBillBtn" class="btn btn-ghost btn-wide">Generate Invoice</button>
+
+          <div id="invoice" class="invoice hidden"></div>
+
+          <button id="payBtn" class="btn btn-yellow btn-wide" disabled>Pay Now (Simulated)</button>
+          <p id="billMsg" class="msg"></p>
+        </div>
+      </div>
+
+      <div class="footer-mini">
+        <button id="resetBtn" class="btn btn-ghost danger">Reset Demo Data</button>
+        <span class="muted">Tip: Use this to re-record your video quickly.</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="muted">Contact: enquiries@swiftlee.com</div>
+      <div class="muted">Address: Singapore (demo addresses)</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
